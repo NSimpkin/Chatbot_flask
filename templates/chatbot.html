@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>ChatBot</title>
+    {% endblock %}
+  <body class="text-center">
+    
+    {% block content %}
+   
+    <div id="chatbox" class="card text-center">
+      <div id="answerbox">
+        <div class="card" id="">
+          <h2>Marvin is online...</h2>
+            <div id="message-holder" class="message-box">
+              <script src="../static/scripts/typewriter.js"></script>
+              {% for answer in answer_list %}
+                <!-- <script type="text/javascript">
+                  createDiv({{answer|tojson}}, {{loop.index0}}, {{answer_list|length}});
+                </script> -->
+              <div class="message">
+                <p class="typed-out">{{answer}}</p>
+              </div>
+              {% endfor %}
+            </div>
+            <div id="questionbox_container">
+              <form role="form" method='POST' action='/chatbot' class="">
+                <div class="form-group text-center" id="questionbox">
+                  <input type="text" name="message" class="" id="input-box" placeholder="chat with Marvin" autocomplete="off" autofocus required>
+                </div>
+                <button type="submit" style="display: none" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+        </div>
+      </div>
+      <img src="../static/images/marvin_paint.png" alt="Marvin" id="Marvinimg">
+    </div>
+    {% endblock %}
+  </body>
+</html>
